@@ -1,0 +1,7 @@
+version: '3.9'
+services:
+  lighthouse:
+    container_name: lighthouse-nginx
+    image: 'yeyouluo/lighthouse:v1.0'
+    ports:
+      - '80:80'

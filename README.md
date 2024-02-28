@@ -1,8 +1,31 @@
-# LightHouse
-LightHouse is a lightweight GUI interface for ClickHouse. Do not confuse it with LightHouse from Google (https://github.com/GoogleChrome/lighthouse). Interface is inspired by Sequel Pro (https://www.sequelpro.com/).
+# LightHouse-Docker
+LightHouse-Docker is a lightweight GUI interface (docker version) for ClickHouse based on [LightHouse](https://github.com/VKCOM/lighthouse).
 
 # Usage
-Just clone this repository and use index.html in your browser.
+## Build docker image
+Execute shell commands:
+```shell
+docker build -t yeyouluo/lighthouse:v1.0 .
+```
+Then you can get the docker image with the following command:
+```shell
+docker images | grep lighthouse
+```
+
+## Run
+Execute shell commands:
+```shell
+docker run -d --name lighthouse-nginx -p 80:80 yeyouluo/lighthouse:v1.0
+```
+or
+```shell
+docker compose up -d
+```
+
+## Explore
+Explore in your browser. Just like: `http://127.0.0.1/#http://192.168.1.10:8123/?user=default`.
+> `192.168.1.10:8123`: clickhouse host ip and port
+
 If you need to specify username (e.g. XXX), then add "/?user=XXX" to your URL, e.g. "http://127.0.0.1:8123/?user=XXX".
 If you want to force basic auth instead of URL-based (basic auth does not work with CORS, be careful), then add "/?basic_user=XXX" instead.
 
@@ -21,6 +44,7 @@ That's it! It is not meant to be a full-fledged replacement for tabix, for examp
 MIT License.
 Based on:
 
+- LightHouse https://github.com/VKCOM/lighthouse
 - AG Grid https://www.ag-grid.com/
 - ACE editor https://ace.c9.io/
 - jQuery https://jquery.org/
